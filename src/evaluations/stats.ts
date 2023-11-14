@@ -1,5 +1,5 @@
-import { type Logger } from "../types";
-import { Client } from "../api/client";
+import { type Logger } from "../types.js";
+import { Client } from "../api/client.js";
 
 const LOG_CATEGORY = "EvaluationStats";
 
