@@ -7,7 +7,7 @@ export type Provided = {
   };
 };
 
-export const valueOf = (value: ConfigValue): GetValue => {
+export const valueOf = (value: ConfigValue): GetValue | undefined => {
   switch (Object.keys(value)[0]) {
     case "string":
       return value.string;

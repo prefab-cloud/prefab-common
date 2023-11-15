@@ -6,6 +6,7 @@
     "rootDir": "src",
     "target": "es2022",
     "moduleResolution": "nodenext",
+    "skipLibCheck": true,
     "types": [
       "bun-types" // add Bun global
     ]

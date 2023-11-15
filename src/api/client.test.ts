@@ -1,6 +1,6 @@
 import { describe, expect, it } from "bun:test";
 
-import { Client } from "./client";
+import { Client } from "./client.js";
 
 const clientIdentifier = "vscode-1.2.3";
 const apiKey = "abcdefg";
