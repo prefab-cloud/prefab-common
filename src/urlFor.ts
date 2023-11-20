@@ -4,22 +4,21 @@ import { ConfigType, type PrefabConfig } from "./types.js";
 const CONFIG_TYPES = [ConfigType.CONFIG, "CONFIG"];
 const FF_CONFIG_TYPES = [ConfigType.FEATURE_FLAG, "FEATURE_FLAG"];
 
-export const urlFor = (
+export const urlForKey = (
   prefab: Prefab,
   apiUrl: string | undefined,
-  keyOrConfig: string | PrefabConfig | undefined
+  key: string
 ) => {
-  if (!keyOrConfig) {
-    return;
-  }
-
-  const config =
-    typeof keyOrConfig === "string" ? prefab.raw(keyOrConfig) : keyOrConfig;
+  const config = prefab.raw(key);
 
   if (!config) {
     return;
   }
 
+  return urlFor(apiUrl, config);
+};
+
+export const urlFor = (apiUrl: string | undefined, config: PrefabConfig) => {
   const key = config.key;
   const projectId = config.projectId;
 
@@ -34,4 +33,6 @@ export const urlFor = (
   if (CONFIG_TYPES.includes(config.configType)) {
     return `${urlBase}/account/projects/${projectId}/configs/${key}`;
   }
+
+  return `${urlBase}/account/projects/${projectId}`;
 };
