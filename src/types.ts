@@ -17,3 +17,10 @@ export type ConfigRow = PrefabConfig["rows"][0];
 export type ConditionalValue = ConfigRow["values"][0];
 
 export type ConfigValue = Exclude<ConditionalValue["value"], undefined>;
+
+export const ConfigType = {
+  CONFIG: 1,
+  FEATURE_FLAG: 2,
+};
+
+export type ConfigTypeValue = (typeof ConfigType)[keyof typeof ConfigType];
