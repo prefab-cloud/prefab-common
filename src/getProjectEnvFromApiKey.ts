@@ -1,4 +1,4 @@
-type ProjectEnvId = {
+export type ProjectEnvId = {
   projectId: string;
   id: string;
 };
