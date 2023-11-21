@@ -19,7 +19,7 @@ export class Client {
     apiUrl?: string;
     log: Logger;
   }) {
-    this.apiUrl = apiUrl || DEFAULT_API_URL;
+    this.apiUrl = (apiUrl || DEFAULT_API_URL).replace(/\/$/, "");
     this.clientIdentifier = clientIdentifier;
 
     if (!apiKey) {
@@ -40,8 +40,7 @@ export class Client {
       "X-PrefabCloud-Client-Version": `prefab-lsp-${this.clientIdentifier}`,
     };
 
-    const uri = new URL(this.apiUrl);
-    uri.pathname = requestPath;
+    const uri = new URL(this.apiUrl + "/" + requestPath.replace(/^\//, ""));
 
     return { uri: uri.toString(), headers };
   }
