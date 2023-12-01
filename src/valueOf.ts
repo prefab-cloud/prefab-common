@@ -1,11 +1,4 @@
-import { type ConfigValue, type GetValue } from "./types.js";
-
-// TODO: remove this when the proto includes `provided`
-export type Provided = {
-  provided: {
-    lookup: string;
-  };
-};
+import type { ConfigValue, GetValue } from "./types.js";
 
 export const valueOf = (value: ConfigValue): GetValue | undefined => {
   switch (Object.keys(value)[0]) {
@@ -30,7 +23,7 @@ export const valueOf = (value: ConfigValue): GetValue | undefined => {
         })
         .join(", ");
     case "provided":
-      return (value as Provided).provided.lookup;
+      return value.provided.lookup;
     default:
       throw new Error(`Unexpected value ${JSON.stringify(value)}`);
   }
