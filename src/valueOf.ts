@@ -23,7 +23,7 @@ export const valueOf = (value: ConfigValue): GetValue | undefined => {
         })
         .join(", ");
     case "provided":
-      return value.provided.lookup;
+      return value.provided?.lookup;
     default:
       throw new Error(`Unexpected value ${JSON.stringify(value)}`);
   }
