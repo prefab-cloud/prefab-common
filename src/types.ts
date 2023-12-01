@@ -26,3 +26,5 @@ export const ConfigType = {
 export type ConfigTypeValue = (typeof ConfigType)[keyof typeof ConfigType];
 
 export { ConfigRow, ConfigValue, Provided, ConditionalValue };
+
+export type ConfigValueType = PrefabConfig["valueType"];
