@@ -1,5 +1,5 @@
 import type { Prefab } from "@prefab-cloud/prefab-cloud-node";
-import { ConfigType, type PrefabConfig } from "./types.js";
+import { ConfigType, type Config } from "./types.js";
 
 const CONFIG_TYPES = [ConfigType.CONFIG, "CONFIG"];
 const FF_CONFIG_TYPES = [ConfigType.FEATURE_FLAG, "FEATURE_FLAG"];
@@ -18,7 +18,7 @@ export const urlForKey = (
   return urlFor(apiUrl, config);
 };
 
-export const urlFor = (apiUrl: string | undefined, config: PrefabConfig) => {
+export const urlFor = (apiUrl: string | undefined, config: Config) => {
   const key = config.key;
   const projectId = config.projectId;
 

@@ -9,10 +9,17 @@ import { ConfigType, ConfigValueType } from "@prefab-cloud/prefab-cloud-node";
 
 export type Logger = (category: any, message: unknown) => void;
 
-export type PrefabConfig = Exclude<
+export type Config = Exclude<
   ReturnType<typeof Prefab.prototype.raw>,
   undefined
 >;
+
+type NewConfig = Omit<
+  Config,
+  "id" | "createdAt" | "updatedAt" | "changedBy" | "allowableValues"
+>;
+
+type NewFlag = Omit<Config, "id" | "createdAt" | "updatedAt" | "changedBy">;
 
 export type GetValue = Exclude<
   ReturnType<typeof Prefab.prototype.get>,
@@ -22,10 +29,12 @@ export type GetValue = Exclude<
 export type ConfigTypeValue = (typeof ConfigType)[keyof typeof ConfigType];
 
 export {
-  ConfigRow,
-  ConfigValue,
-  Provided,
   ConditionalValue,
+  ConfigRow,
   ConfigType,
+  ConfigValue,
   ConfigValueType,
+  NewConfig,
+  NewFlag,
+  Provided,
 };

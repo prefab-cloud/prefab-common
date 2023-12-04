@@ -1,4 +1,4 @@
-import type { ConfigValue, GetValue, PrefabConfig, Logger } from "./types.js";
+import type { ConfigValue, GetValue, Config, Logger } from "./types.js";
 import { valueOf } from "./valueOf.js";
 import type { Environment } from "./api/getEnvironmentsFromApi.js";
 
@@ -11,7 +11,7 @@ export type ConfigValueInEnvironment = {
 };
 
 export const configValuesInEnvironments = (
-  config: PrefabConfig,
+  config: Config,
   environments: Environment[],
   log: Logger
 ) => {

@@ -1,5 +1,5 @@
 import { Client } from "./client.js";
-import type { Logger, PrefabConfig } from "../types.js";
+import type { Logger, Config } from "../types.js";
 
 export const getConfigFromApi = async ({
   client,
@@ -9,7 +9,7 @@ export const getConfigFromApi = async ({
   client: Client;
   errorLog: Logger;
   key: string;
-}): Promise<PrefabConfig | undefined> => {
+}): Promise<Config | undefined> => {
   const requestPath = `/api/v1/config/key/${encodeURIComponent(key)}`;
 
   const response = await client.get(requestPath);
