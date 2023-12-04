@@ -1,10 +1,12 @@
-import type {
-  Prefab,
-  ConfigRow,
-  ConfigValue,
-  Provided,
+import {
   ConditionalValue,
+  ConfigRow,
+  ConfigType,
+  Prefab,
+  Provided,
 } from "@prefab-cloud/prefab-cloud-node";
+
+import { ConfigValueType, ConfigValue } from "@prefab-cloud/prefab-cloud-node";
 
 export type Logger = (category: any, message: unknown) => void;
 
@@ -18,13 +20,11 @@ export type GetValue = Exclude<
   undefined
 >;
 
-export const ConfigType = {
-  CONFIG: 1,
-  FEATURE_FLAG: 2,
+export {
+  ConfigRow,
+  ConfigValue,
+  Provided,
+  ConditionalValue,
+  ConfigValueType,
+  ConfigType,
 };
-
-export type ConfigTypeValue = (typeof ConfigType)[keyof typeof ConfigType];
-
-export { ConfigRow, ConfigValue, Provided, ConditionalValue };
-
-export type ConfigValueType = PrefabConfig["valueType"];
