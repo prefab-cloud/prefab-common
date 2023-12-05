@@ -1,6 +1,14 @@
 import type { ConfigValue, GetValue } from "./types.js";
 
 export const valueOf = (value: ConfigValue): GetValue | undefined => {
+  if (value.decryptWith) {
+    return "[encrypted]";
+  }
+
+  if (value.confidential) {
+    return "[confidential]";
+  }
+
   switch (Object.keys(value)[0]) {
     case "string":
       return value.string;
