@@ -4,13 +4,13 @@ export type ProjectEnvId = {
 };
 
 export const getProjectEnvFromApiKey = (
-  apiKey: string | undefined
+  apiKey: string | undefined,
 ): ProjectEnvId => {
   if (!apiKey) {
     throw new Error("No API key set. Please update your configuration.");
   }
 
-  const parts = /-P(\d+)-E(\d+)-SDK-/.exec(apiKey);
+  const parts = /-P(\d+)-E(\d+)-(SDK|BACKEND)-/.exec(apiKey);
 
   if (!parts) {
     throw new Error("Invalid API key");
