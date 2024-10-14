@@ -1,6 +1,6 @@
 {
   "dependencies": {
-    "@prefab-cloud/prefab-cloud-node": "^0.1.10-rc4"
+    "@prefab-cloud/prefab-cloud-node": "^0.4.2"
   },
   "type": "module",
   "devDependencies": {
