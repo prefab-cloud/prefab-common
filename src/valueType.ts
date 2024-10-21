@@ -1,38 +1,40 @@
-import type { Config, ConfigValueType } from "./types.js";
+import type {Config, ConfigValueType} from './types.js'
 
 export const valueTypeStringForConfig = (config: Config) => {
-  const valueType: string | undefined = valueTypeString(config.valueType);
+  const valueType: string | undefined = valueTypeString(config.valueType)
 
   if (valueType === undefined) {
     if (config.allowableValues && config.allowableValues.length > 0) {
-      return Object.keys(config.allowableValues[0])[0];
+      return Object.keys(config.allowableValues[0])[0]
     }
   }
 
-  return valueType;
-};
+  return valueType
+}
 
 export const valueTypeString = (valueType: ConfigValueType) => {
   switch (valueType) {
     case 1:
-      return "int";
+      return 'int'
     case 2:
-      return "string";
+      return 'string'
     case 3:
-      return "bytes";
+      return 'bytes'
     case 4:
-      return "double";
+      return 'double'
     case 5:
-      return "bool";
+      return 'bool'
     case 7:
-      return "limitDefinition";
+      return 'limitDefinition'
     case 9:
-      return "logLevel";
+      return 'logLevel'
     case 10:
-      return "stringList";
+      return 'stringList'
     case 11:
-      return "intRange";
+      return 'intRange'
+    case 13:
+      return 'json'
     default:
-      return undefined;
+      return undefined
   }
-};
+}
